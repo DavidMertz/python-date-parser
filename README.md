@@ -100,8 +100,8 @@ and of [Pandas](https://pandas.pydata.org):
 ```bash
 usage: benchmark.py [-h] [--examples EXAMPLES]
                     [--library {date_parser,date_parser_list,...}]
-                    [--iterations ITERATIONS] [--warmup WARMUP] [--verbose]
-                    [--quiet]
+                    [--iterations ITERATIONS] [--warmup WARMUP]
+                    [--verbose] [--quiet]
 
 Benchmark date_parser (the local Rust extension) and other libraries
 
@@ -127,11 +127,11 @@ On my system, at version 1.0.4, I see:
 
 ```
 % uv run python bin/benchmark.py -q
+dateparser (https://pypi.org/project/dateparser/):       147 d/s
+pandas — pd.to_datetime(format='mixed')          :    40,363 d/s
 date_parser — parse() per input                  : 1,164,578 d/s
 date_parser — parse_list bulk API                : 1,294,147 d/s
 date_parser — parse_series Polars API            : 1,992,147 d/s
-dateparser (https://pypi.org/project/dateparser/):       147 d/s
-pandas — pd.to_datetime(format='mixed')          :    40,363 d/s
 ```
 
 ## Local development
